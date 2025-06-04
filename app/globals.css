@@ -7,21 +7,14 @@
 
 @layer base {
   body {
-    @apply 
-    line-height: 2px;
+    line-height: 1.5;
     background-color: #1c1c22;
     color: white;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
   
 
-  a {
-    text-decoration: none !important;
-  }
-
-  .container h1 a {
-    text-decoration: none;
-  }
+  
 
   
 }

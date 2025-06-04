@@ -12,7 +12,7 @@ const Header = () => {
             <div className="container mx-auto">
                 <Link href="/">
                 <h1 className="text-4xl font-semibold text-white">
-                   Pasindu<span className="text-accent-default"> .</span>
+                   Pasindu<span className="text-accent"> .</span>
                 </h1>
                 </Link>
                 <Nav />
