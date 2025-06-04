@@ -9,10 +9,10 @@ const Header = () => {
         
         <header className="py-8 xl:py-12 text-white">
 
-            <div className="container  mx-auto">
+            <div className="container mx-auto">
                 <Link href="/">
-                <h1>
-                   Pasindu<span> .</span>
+                <h1 className="text-4xl font-semibold text-white">
+                   Pasindu<span className="text-accent-default"> .</span>
                 </h1>
                 </Link>
                 <Nav />

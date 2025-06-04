@@ -13,10 +13,7 @@
     color: white;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
-  .container h1 {
-    font-size: 40px;
-    color: white;
-  }
+  
 
   a {
     text-decoration: none !important;
@@ -26,10 +23,5 @@
     text-decoration: none;
   }
 
-  .container span {
-    color: #00ff99;
-  }
-  .nav{
-    margin-top: -10px;
-  }
+  
 }
