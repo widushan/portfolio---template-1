@@ -1,21 +1,14 @@
 /* Add at the top of globals.css */
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
 
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import "tailwindcss";
-@import "tw-animate-css";
-
-
-
-@layer base{
-  body{
-    @apply font-primary bg-primary text-white leading-loose;
+@layer base {
+  body {
+    @apply font-primary;
+    background-color: #1c1c22;
+    color: white;
   }
 }

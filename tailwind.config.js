@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss'.Config)} */
+/** @type {import('tailwindcss').Config} */
 
 module.exports = {
     darkMode: ["class"],
@@ -6,7 +6,7 @@ module.exports = {
         './pages/**/*.{js,jsx}',
         './components/**/*.{js,jsx}',
         './app/**/*.{js,jsx}',
-        './src/**/*.{js,,jsx}',
+        './src/**/*.{js,jsx}',
     ],
     prefix: "",
     theme: {
@@ -14,7 +14,7 @@ module.exports = {
             center: true,
             padding: "15px",
         },
-        screen: {
+        screens: {
                 "sm": "640px",
                 "md": "768px",
                 "lg": "960px",
@@ -47,7 +47,5 @@ module.exports = {
             },
         },
     },
-
     plugins: [require("tailwindcss-animate")]
-    
 };
