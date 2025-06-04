@@ -7,8 +7,29 @@
 
 @layer base {
   body {
-    @apply font-primary;
+    @apply 
+    line-height: 2px;
     background-color: #1c1c22;
     color: white;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  .container h1 {
+    font-size: 40px;
+    color: white;
+  }
+
+  a {
+    text-decoration: none !important;
+  }
+
+  .container h1 a {
+    text-decoration: none;
+  }
+
+  .container span {
+    color: #00ff99;
+  }
+  .nav{
+    margin-top: -10px;
   }
 }
