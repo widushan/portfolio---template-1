@@ -7,10 +7,16 @@
 
 @layer base {
   body {
-    line-height: 1.5;
-    background-color: #1c1c22;
-    color: white;
-    font-family:'JetBrains Mono', 'monospace';
+    @apply font-primary bg-primary text-white leading-loose;
+  }
+  .h1{
+    @apply text-[35px] xl:text-[45px] leading-[1.1] font-semibold;
+  }
+  .h2{
+    @apply text-[25px] xl:text-[35px] leading-[1.1] font-semibold;
+  }
+  .h3{
+    @apply text-[15px] xl:text-[25px] leading-[1.1] font-semibold;
   }
   
 
