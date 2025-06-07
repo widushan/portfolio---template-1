@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, SelectGroup,  } from "@/components/ui/select";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa"
-import { Label } from "@/components/ui/label";
+
 
 const info = [
     {
@@ -43,13 +43,13 @@ const Contact = () => {
             className = "py-6"
         >
             <div className="container mx-auto">
-                <div>
+                <div className="flex flex-col xl:flex-row gap-[30px]">
                     {/*Form*/}
                     <div>
                         <form action="">form</form>
                     </div>
                     {/*info*/}
-                    <div></div>
+                    <div>info</div>
                 </div>
             </div>
         </motion.section>
