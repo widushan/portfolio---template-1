@@ -1,8 +1,8 @@
 "use client";
 
 
-import {FaHtml5, FaCss3, FaJs, FaReact, FaNodeJs, FaNextJs, FaFlutter, FaPython, FaPhp, FaCsharp, FaJava, FaCplus, FaTailwindcss} from "react-icons/fa";
-import { SiTailwindcss, SiNextdotjs, SiTypescript } from "react-icons/si";
+import { FaHtml5, FaCss3, FaJs, FaReact, FaPython, FaJava } from "react-icons/fa";
+import { SiNextdotjs, SiTailwindcss, SiPhp, SiCsharp, SiFlutter, SiCplusplus } from "react-icons/si";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@/components/ui/tooltip";
 import { motion } from "framer-motion";
@@ -96,54 +96,18 @@ const skills = {
     title: "My Skills",
     description: "I possess a diverse skill set that includes web development, mobile app development, AI/ML, and more. I am proficient in various programming languages and frameworks, allowing me to adapt to different project requirements and deliver high-quality solutions.",
     skilllist: [
-        {
-            icon: <FaHtml5 />,
-            name: "HTML5",
-        },
-        {
-            icon: <FaCss3 />,
-            name: "CSS3",
-        },
-        {
-            icon: <FaJs />,
-            name: "JavaScript",
-        },
-        {
-            icon: <FaReact />,
-            name: "React",
-        },
-        {
-            icon: <SiNextdotjs />,
-            name: "Next.js",
-        },
-        {
-            icon: <SiTailwindcss />,
-            name: "Tailwind CSS",
-        },
-        {
-            icon: <FaPython />,
-            name: "Python",
-        },
-        {
-            icon: <FaPhp />,
-            name: "PHP",
-        },
-        {
-            icon: <FaCsharp />,
-            name: "C#",
-        },
-        {
-            icon: <FaJava />,
-            name: "Java",
-        },
-        {
-            icon: <FaCplus />,
-            name: "C++",
-        },
-        {
-            icon: <FaFlutter />,
-            name: "Flutter",
-        },
+        { icon: <img src="/assets/skills/html5.png" alt="" className="w-14 h-14" />, name: "HTML5" },
+        { icon: <img src="/assets/skills/css3.png" alt="" className="w-14 h-14" />, name: "CSS3" },
+        { icon: <img src="/assets/skills/jsc.png" alt="" className="w-14 h-14" />, name: "JavaScript" },
+        { icon: <img src="/assets/skills/react.png" alt="" className="w-14 h-14" />, name: "React" },
+        { icon: <img src="/assets/skills/nxtjs.png" alt="" className="w-14 h-14" />, name: "Next.js" },
+        { icon: <img src="/assets/skills/tailwind.png" alt="" className="w-14 h-14" />, name: "Tailwind CSS" },
+        { icon: <img src="/assets/skills/python.png" alt="" className="w-14 h-14" />, name: "Python" },
+        { icon: <img src="/assets/skills/php.png" alt="" className="w-14 h-14" />, name: "PHP" },
+        { icon: <img src="/assets/skills/c-sharp.png" alt="" className="w-14 h-14" />, name: "C#" },
+        { icon: <img src="/assets/skills/java.png" alt="" className="w-14 h-14" />, name: "Java" },
+        { icon: <img src="/assets/skills/c-plus-plus.png" alt="" className="w-14 h-14" />, name: "C++" },
+        { icon: <img src="/assets/skills/flutter.png" alt="" className="w-14 h-14" />, name: "Flutter" },
     ],
 };
 
@@ -168,7 +132,7 @@ const Resume = () => {
                     
                     <div className="min-h-[80vh] w-full">
 
-                        {/*Content*/}
+                        {/*about*/}
                         <TabsContent value="about" className="w-full">About Me</TabsContent>
 
 
@@ -206,15 +170,25 @@ const Resume = () => {
                                     <h3 className="text-4xl font-bold">{skills.title}</h3>
                                     <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">{skills.description}</p>
                                 </div>
-                                <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:gap-[30px]">
+                                <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px]">
                                     {skills.skilllist.map((skill, index) => {
                                         return (
                                             <li key={index}>
                                                 <TooltipProvider>
                                                     <Tooltip>
-                                                        <TooltipTrigger>
-                                                            <div>{skill.icon}</div>
+                                                        <TooltipTrigger className= "w-full h-[100px] bg-[#232329] rounded-xl flex items-center justify-center group">
+                                                            <motion.div
+                                                                whileHover={{ scale: 1.2 }}
+                                                                whileTap={{ scale: 0.95 }}
+                                                                transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                                                                className=""
+                                                            >
+                                                                {skill.icon}
+                                                            </motion.div>
                                                         </TooltipTrigger>
+                                                        <TooltipContent className="bg-[#232329] text-white/80 capitalize">
+                                                            {skill.name}
+                                                        </TooltipContent>
                                                     </Tooltip>
                                                 </TooltipProvider>
                                             </li>
