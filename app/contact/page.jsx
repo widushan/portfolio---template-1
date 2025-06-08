@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-
+import { useState } from "react";
 import { delay, motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
@@ -33,6 +33,56 @@ const info = [
 
 
 const Contact = () => {
+
+    const [form, setForm] = useState({
+        firstname: "",
+        lastname: "",
+        email: "",
+        phone: "",
+        service: "",
+        message: "",
+    });
+    const [loading, setLoading] = useState(false);
+    const [result, setResult] = useState(null);
+
+    const handleChange = (e) => {
+        setForm({ ...form, [e.target.name]: e.target.value });
+    };
+
+    const handleServiceChange = (value) => {
+        setForm({ ...form, service: value });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+        setResult(null);
+        try {
+            const res = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(form),
+            });
+            const data = await res.json();
+            if (res.ok) {
+                setResult({ success: true, message: "Message sent successfully!" });
+                setForm({
+                    firstname: "",
+                    lastname: "",
+                    email: "",
+                    phone: "",
+                    service: "",
+                    message: "",
+                });
+            } else {
+                setResult({ success: false, message: data.message || "Something went wrong." });
+            }
+        } catch (err) {
+            setResult({ success: false, message: "Something went wrong." });
+        }
+        setLoading(false);
+    };
+
     return (
         <motion.section
             initial = {{  opacity: 0 }}
@@ -46,19 +96,19 @@ const Contact = () => {
                 <div className="flex flex-col xl:flex-row gap-[30px]">
                     {/*Form*/}
                     <div className="xl:w-[54%] order-2 xl:order-none">
-                        <form className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
+                        <form className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl" onSubmit={handleSubmit}>
                             <h3 className="text-4xl text-accent">Let's Work Together</h3>
                             <p className="text-white/60">Have questions or want to work together? Feel free to reach out! I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
 
                             {/*Inputs*/}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <Input type="firstname" placeholder="First Name" />
-                                <Input type="lastname" placeholder="Last Name" />
-                                <Input type="email" placeholder="Email" />
-                                <Input type="phone" placeholder="Phone" />
+                                <Input name="firstname" value={form.firstname} onChange={handleChange} type="text" placeholder="First Name" />
+                                <Input name="lastname" value={form.lastname} onChange={handleChange} type="text" placeholder="Last Name" />
+                                <Input name="email" value={form.email} onChange={handleChange} type="email" placeholder="Email" />
+                                <Input name="phone" value={form.phone} onChange={handleChange} type="text" placeholder="Phone" />
                             </div>
 
-                            <Select>
+                            <Select value={form.service} onValueChange={handleServiceChange}>
                                 <SelectTrigger>
                                     <SelectValue placeholder="Select a Service" />
                                 </SelectTrigger>
@@ -76,13 +126,22 @@ const Contact = () => {
                                 </SelectContent>
                             </Select>
 
-                            <Textarea 
+                            <Textarea
+                                name="message"
+                                value={form.message}
+                                onChange={handleChange}
                                 placeholder="Type Your Message"
                                 className="h-[200px]"
                             />
 
-                            <Button className="max-w-40" size="md" >Send Message</Button>
-                            
+                            <Button className="max-w-40" size="md" type="submit" disabled={loading}>
+                                {loading ? "Sending..." : "Send Message"}
+                            </Button>
+                            {result && (
+                                <div className={result.success ? "text-green-500" : "text-red-500"}>
+                                    {result.message}
+                                </div>
+                            )}
                         </form>
                     </div>
                     {/*info*/}
